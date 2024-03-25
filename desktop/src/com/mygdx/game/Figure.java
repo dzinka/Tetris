@@ -27,4 +27,5 @@ public class Figure {
     public RotationMode getCurrentRotation() {
         return currentRotation;
     }
+
 }

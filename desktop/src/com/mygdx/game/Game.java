@@ -90,6 +90,5 @@ public class Game extends ApplicationAdapter {
     public void dispose() {
         batch.dispose();
     }
-
 }
 

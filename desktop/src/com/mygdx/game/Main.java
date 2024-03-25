@@ -12,4 +12,5 @@ public class Main {
 		config.setForegroundFPS(60);
 		new Lwjgl3Application(new Game(), config);
 	}
+
 }

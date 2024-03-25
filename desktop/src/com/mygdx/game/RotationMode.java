@@ -20,3 +20,4 @@ public enum RotationMode {
         return rotationByNumber[newRotationIndex];
     }
 }
+
