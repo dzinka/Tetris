@@ -2,35 +2,44 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Color;
 
-import java.util.Random;
-
 public enum FigureForm {
+    LINE_FORM(new int[][]{
+            {1, 1, 1, 1}
+    }, Color.BLUE),
+    L_FORM(new int[][]{
+            {1, 0},
+            {1, 0},
+            {1, 1}
+    }, Color.RED),
+    J_FORM(new int[][]{
+            {0, 1},
+            {0, 1},
+            {1, 1}
+    }, Color.GREEN),
+    S_FORM(new int[][]{
+            {0, 1, 1},
+            {1, 1, 0}
+    }, Color.YELLOW);
 
-    I_FORM (CoordMask.I_FORM, Color.BLUE);
+    private final int[][] formArray;
+    private final Color color;
 
-    private CoordMask mask;
-
-    private Color color;
-
-    FigureForm(CoordMask mask, Color color){
-        this.mask = mask;
+    FigureForm(int[][] formArray, Color color) {
+        this.formArray = formArray;
         this.color = color;
     }
 
-    private static final FigureForm[] formByNumber = {I_FORM};
-
-    public CoordMask getMask(){
-        return this.mask;
+    public int[][] getForm() {
+        return formArray;
     }
 
-    public Color getColor(){
-        return this.color;
+    public Color getColor() {
+        return color;
     }
-
 
     public static FigureForm getRandomForm() {
-        int formNumber = new Random().nextInt(formByNumber.length);
-        return formByNumber[formNumber];
+        FigureForm[] values = FigureForm.values();
+        int randomIndex = (int) (Math.random() * values.length);
+        return values[randomIndex];
     }
-
 }

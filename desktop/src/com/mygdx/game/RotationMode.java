@@ -2,7 +2,6 @@ package com.mygdx.game;
 
 public enum RotationMode {
     NORMAL(0),
-
     FLIP_CCW(1),
 
     INVERT(2),
@@ -11,10 +10,9 @@ public enum RotationMode {
 
     private int number;
 
-    RotationMode(int number) {
+    RotationMode(int number){
         this.number = number;
     }
-
     private static RotationMode[] rotationByNumber = {NORMAL, FLIP_CCW, INVERT, FLIP_CW};
 
     public static RotationMode getNextRotationFrom(RotationMode perviousRotation) {

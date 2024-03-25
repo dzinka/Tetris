@@ -1,23 +1,30 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.graphics.Color;
-
-import java.util.Random;
 
 public class Figure {
-    private Coord metaPointCoords;
-
+    private FigureForm form;
+    private Coord start;
     private RotationMode currentRotation;
 
-    private FigureForm form;
-
-    public Figure(Coord metaPointCoords){
-        this.metaPointCoords = metaPointCoords;
-        this.currentRotation = RotationMode.NORMAL;
+    public Figure(){
         this.form = FigureForm.getRandomForm();
+        this.start = Coord.GerRandomCoord(form.getForm());
+        this.currentRotation = RotationMode.NORMAL;
     }
 
-    public Coord[] getCoords(){
-        return form.getMask().generateFigure(metaPointCoords, currentRotation);
+    public Coord getStart() {
+        return start;
+    }
+
+    public FigureForm getForm() {
+        return form;
+    }
+
+    public void rotate(){
+        this.currentRotation = RotationMode.getNextRotationFrom(currentRotation);
+    }
+
+    public RotationMode getCurrentRotation() {
+        return currentRotation;
     }
 }
