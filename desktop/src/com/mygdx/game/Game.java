@@ -29,8 +29,13 @@ public class Game extends ApplicationAdapter {
     @Override
     public void render() {
         ScreenUtils.clear(0, 0, 0.2f, 1);
+    }
 
-
+    private void handleInput() {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+            Figure figure = new Figure(new Coord(100, 100));
+            tetrisFiguresToDraw.add(figure);
+        }
     }
 
     private void drawTetrisFigure(Figure figure) {
